@@ -1,12 +1,22 @@
 <template>
-  <div class="home">
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id asperiores dolor aut debitis, animi nesciunt ipsa praesentium, alias eveniet nihil vel voluptatum ad! Consequatur possimus officia ipsa facere, assumenda tenetur?</p>
+  <div class="home-container">
+    <AnimalCard v-for="animal in animals" :key="animal.id" />
   </div>
 </template>
 
 <script>
+import AnimalCard from '../components/AnimalCard.vue'
 
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: { AnimalCard },
+  computed: {
+    animals () {
+      return this.$store.state.animals
+    }
+  },
+  created () {
+    this.$store.dispatch('fetchAnimal')
+  }
 }
 </script>

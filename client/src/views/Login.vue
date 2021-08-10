@@ -5,18 +5,20 @@
         <h3>Please Login First</h3>
         <form>
           <input
+            v-model="email"
             class="input-form"
             type="email"
             placeholder="your email here"
             required
           />
           <input
+            v-model="password"
             class="input-form"
             type="password"
             placeholder="your password here"
             required
           />
-          <button type="submit">Login</button>
+          <button @click.prevent="login" type="submit">Login</button>
         </form>
       </div>
       <div class="right-login-page">
@@ -28,6 +30,20 @@
 
 <script>
 export default {
-  name: 'Login'
+  name: 'Login',
+  data () {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+    login () {
+      this.$store.dispatch('login', {
+        email: this.email,
+        password: this.password
+      })
+    }
+  }
 }
 </script>

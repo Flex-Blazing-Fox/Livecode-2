@@ -5,6 +5,6 @@ const favoriteRouter = require('./favoritesRouter')
 const { authentication } = require('../middleware/auth')
 
 router.use('/', userRouter)
-router.use('/animals', authentication, animalRouter)
+router.use('/animals', animalRouter)
 router.use('/favourites', authentication, favoriteRouter)
 module.exports = router
