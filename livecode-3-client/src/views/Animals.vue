@@ -9,7 +9,7 @@
 import Animal from '@/components/Animal.vue'
 
 export default {
-  name: 'Animals',
+  name: 'listAnimals',
   components: { Animal },
   computed: {
     animals () {

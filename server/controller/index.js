@@ -47,7 +47,10 @@ class FavoriteController{
     static getFavorites(req, res, next){
         const userId = req.userId
         Favorite.findAll({
-            where: {userId}
+            where: {userId},
+            include: [{
+                model: Animal
+            }]
         })
         .then(result=>{
             res.status(200).json({favorites: result})

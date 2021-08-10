@@ -8,10 +8,10 @@
           src="https://mustopa28121992.github.io/projectt/img/fox--md5--a9e377ae39495073d0e66db163fc8d9b.png"
           alt="logo"
         />
-        <h1>Animal Lover</h1>
+        <router-link to="/"><h1>Animal Lover</h1></router-link>
       </div>
       <div class="nav-center">
-        <a href="#">My Favorites</a>
+        <router-link to="/favorites">My Favorites</router-link>
       </div>
       <div class="nav-right">
         <button>Logout</button>

@@ -18,7 +18,8 @@
 export default {
   name: 'Animal',
   props: ['animal'],
-  methods: {}
+  methods: {
+  }
 }
 </script>
 
