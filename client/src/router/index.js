@@ -18,7 +18,7 @@ const routes = [
     component: Login
   },
   {
-    path: '/favouties',
+    path: '/favourites',
     name: 'Favourites',
     component: Favourites
   }

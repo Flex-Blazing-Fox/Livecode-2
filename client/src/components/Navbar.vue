@@ -8,7 +8,7 @@
         <h1>Animal Lover</h1>
       </div>
       <div class="nav-center">
-        <a href="/favouties">My Favorites</a>
+        <a href="/favourites">My Favorites</a>
       </div>
       <div class="nav-right">
         <button>Logout</button>
