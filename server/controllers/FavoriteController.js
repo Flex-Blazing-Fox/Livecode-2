@@ -28,7 +28,17 @@ class FavoriteController {
     }
 
     static deleteFavorite(req,res) {
-        
+        const { favorites } = req
+
+        favorites
+        .destroy()
+        .then(() => {
+            res.status(200).json({"message": "data successfully deleted"})
+        })
+        .catch(err => {
+            res.status(500).json(err)
+        })
+
     }
 }
 
