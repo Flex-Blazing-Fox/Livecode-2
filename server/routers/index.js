@@ -9,8 +9,8 @@ routers.post("/register", userController.register);
 routers.post("/login", userController.login);
 routers.use(authentication);
 routers.get("/animals", animalController.getAnimals);
-routers.get("/favorites", animalController.getFavorites);
-routers.post("/favorites/:animalId", animalController.addFavorites);
-routers.delete("/favorites/:animalId", authorization, animalController.deleteFavorites);
+routers.post("/favorites/:animalId", favoriteController.addFavorites);
+routers.get("/favorites", authorization, favoriteController.getFavorites);
+routers.delete("/favorites/:id", authorization, favoriteController.deleteFavorites);
 
 module.exports = routers;

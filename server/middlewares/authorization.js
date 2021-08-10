@@ -14,3 +14,5 @@ const authorize = (req, res, next) => {
       console.log("Tidak ada favorite");
     });
 };
+
+module.exports = authorize
