@@ -1,10 +1,15 @@
-const { Favorite } = require("../models");
+const { Favorite, Animal } = require("../models");
 
 const authorize = (req, res, next) => {
   Favorite.findAll({
     where: {
       userId: req.userId,
     },
+    include: [
+      {
+        model: Animal,
+      },
+    ],
   })
     .then((results) => {
       req.authorizedFavorites = results;
@@ -15,4 +20,4 @@ const authorize = (req, res, next) => {
     });
 };
 
-module.exports = authorize
+module.exports = authorize;
