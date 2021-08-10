@@ -7,6 +7,6 @@ const { authentication } = require('../middlewares/auth')
 router.use('/', routesUser)
 router.use(authentication)
 router.use('/animals', routesAnimal)
-router.use('/favourites', routesFavorite)
+router.use('/favorites', routesFavorite)
 
 module.exports = router

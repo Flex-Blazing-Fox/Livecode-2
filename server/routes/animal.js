@@ -1,6 +1,6 @@
 const router = require('express').Router()
-const AnimalController = require('../controllers/AnimalController')
+const AnimalsController = require('../controllers/AnimalsControllers')
 
-router.get('/', AnimalController.list)
+router.get('/', AnimalsController.getAnimals)
 
 module.exports = router

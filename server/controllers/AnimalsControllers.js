@@ -2,9 +2,11 @@ const {Animal} = require('../models')
 
 class AnimalsControllers{
     static getAnimals(req, res, next){
+        console.log("masuk");
         Animal.findAll()
-        .then((animals)=> {
-            res.status(200).json({Animal: animals})
+
+        .then((data)=> {
+            res.status(200).json(data)
         })
         .catch((err)=>{
             next(err)
