@@ -61,9 +61,9 @@ export default new Vuex.Store({
           console.log(err.response)
         })
     },
-    deleteFavAnimal({ dispatch }) {
+    deleteFavAnimal({ dispatch }, id) {
       axios({
-        url: '/favorites',
+        url: '/favorites/' + id,
         method: 'DELETE',
         headers: { access_token: localStorage.access_token }
       })

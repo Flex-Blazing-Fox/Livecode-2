@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     removeFav(id) {
-      this.$store.dispatch('removeFav', id)
+      this.$store.dispatch('deleteFavAnimal', id)
     }
   },
   created() {
