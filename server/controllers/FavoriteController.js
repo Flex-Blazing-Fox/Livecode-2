@@ -19,7 +19,7 @@ class FavoriteController {
     
     static addToFavourtie(req, res){
         const { animalId } = req.params
-        
+        console.log(animalId);
         Favorite.create({userId:req.userId, animalId})
             .then(data => {
                 res.status(200).json({"favorite":{
@@ -40,7 +40,7 @@ class FavoriteController {
         favorites
         .destroy()
         .then(() => {
-            res.status(200).json({"message": "data successfully deleted"})
+            res.status(200).json({"message": "Successfully delete favorite animal"})
         })
         .catch(err => {
             res.status(500).json(err)

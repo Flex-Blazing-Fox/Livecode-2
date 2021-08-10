@@ -10,7 +10,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     animals: [],
-    favourites: []
+    favourites: [],
+    isLogin: false
   },
   mutations: {
     SET_ANIMALS (state, payload) {
@@ -30,6 +31,7 @@ export default new Vuex.Store({
       })
         .then(({ data }) => {
           localStorage.setItem('access_token', data.access_token)
+          this.state.isLogin = true
           router.push('/')
         })
         .catch(err => {
@@ -39,10 +41,12 @@ export default new Vuex.Store({
     fetchAnimal ({ commit }) {
       axios({
         method: 'GET',
-        url: '/animals'
+        url: '/animals',
+        headers: {
+          access_token: localStorage.access_token
+        }
       })
         .then(({ data }) => {
-          console.log(data.animals)
           commit('SET_ANIMALS', data.animals)
         })
         .catch(err => {
@@ -58,7 +62,6 @@ export default new Vuex.Store({
         }
       })
         .then(({ data }) => {
-          console.log(data.favorites)
           commit('SET_FAVOURTIES', data.favorites)
         })
         .catch(err => {
@@ -80,8 +83,7 @@ export default new Vuex.Store({
           console.log(err.data[0].response.message)
         })
     },
-    deleteFavourite (context, payload) {
-      console.log(payload)
+    deleteFavourite ({ dispatch }, payload) {
       axios({
         method: 'DELETE',
         url: `/favourites/${payload}`,
@@ -90,11 +92,15 @@ export default new Vuex.Store({
         }
       })
         .then(() => {
-          router.push('/')
+          dispatch('fetchFavourites')
         })
         .catch(err => {
           console.log(err.data[0].response.message)
         })
+    },
+    logout (context) {
+      localStorage.clear()
+      router.push('/login')
     }
   },
   modules: {

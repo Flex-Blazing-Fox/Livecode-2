@@ -10,14 +10,19 @@
       <div class="nav-center">
         <a href="/favourites">My Favorites</a>
       </div>
-      <div class="nav-right">
-        <button>Logout</button>
+      <div class="nav-right" v-if="isLogin">
+        <button @click="$store.dispatch('logout')">Logout</button>
       </div>
     </nav>
 </template>
 
 <script>
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  data () {
+    return {
+      isLogin: true
+    }
+  }
 }
 </script>
