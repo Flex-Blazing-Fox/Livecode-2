@@ -2,19 +2,19 @@
     {
         "id": 1,
         "name": "Koala",
-        "imageUrl": "https://a-z-animals.com/media/animals/images/470x370/koala9.jpg",
+        "imageUrl": "https://asset.kompas.com/crops/hCsl_4aqNq0wTSM25eLta8dsGPU=/5x4:1000x667/750x500/data/photo/2020/11/21/5fb8e8551ad37.jpg",
         "description": "Spends up to 80% of the time sleeping or resting!"
     },
     {
         "id": 2,
         "name": "Red Panda",
-        "imageUrl": "https://a-z-animals.com/media/animals/images/470x370/red_panda5.jpg",
+        "imageUrl": "https://asset.kompas.com/crops/SpX-ulM8I_KXO7IHz2BrVtyjnA0=/0x0:1000x667/750x500/data/photo/2018/03/23/2501395188.jpg",
         "description": "There are less than 3,000 left in the wild!"
     },
     {
         "id": 3,
         "name": "Artic Fox",
-        "imageUrl": "https://a-z-animals.com/media/animals/images/470x370/arctic_fox_11.jpg",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNLvD0jU1zq7uvPP1qGdlpg9sq19G1mn7ADmO0WiKUMjeh7y5Ms4Yg885BYSEqfqfpg2A&usqp=CAU",
         "description": "Extremely thick winter fur!"
     }
 ]
