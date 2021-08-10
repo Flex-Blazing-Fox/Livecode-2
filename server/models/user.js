@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      this.hasMany(models.Favorite, {foreignKey: 'userId'})
     }
   };
   User.init({
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     hooks: {
       beforeCreate: user => {
-        const hash = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10) )
+        const hash = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10))
         user.password = hash
       }
     },
