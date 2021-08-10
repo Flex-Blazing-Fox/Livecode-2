@@ -14,13 +14,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Favorite.init({
-    name: DataTypes.STRING,
-    imageUrl: DataTypes.STRING,
-    description: DataTypes.STRING,
+    animalId: DataTypes.INTEGER,
     userId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Favorite',
   });
+  Favorite.associate = function(models){
+    Favorite.belongsTo(models.User, {foreignKey: 'userId'})
+    Favorite.belongsTo(models.Animal, {foreignKey: 'animalId'})
+  }
   return Favorite;
 };

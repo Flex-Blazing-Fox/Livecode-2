@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     hooks: {
-      boforeCreate: (User)=>{
+      beforeCreate: (User)=>{
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(User.password, salt)
         User.password = hash
@@ -28,5 +28,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     modelName: 'User',
   });
+  User.associate = function(models){
+    User.hasMany(models.Favorite, {foreignKey: 'userId'})
+  }
   return User;
 };

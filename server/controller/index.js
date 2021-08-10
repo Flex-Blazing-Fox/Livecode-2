@@ -52,13 +52,19 @@ class FavoriteController{
         .then(result=>{
             res.status(200).json({favorites: result})
         })
+        .catch(err=>{
+            res.status(400).json({err})
+        })
     }
     static addFavorite(req, res, next){
-        const {animalId} = req.body
+        const {animalId} = req.params
         const userId = req.userId
         Favorite.create({animalId, userId})
         .then(result=>{
             res.status(200).json({favorite: result})
+        })
+        .catch(err=>{
+            res.status(400).json({err})
         })
     }
     static deleteFavorite(req, res, next){
@@ -69,6 +75,9 @@ class FavoriteController{
         })
         .then((_)=>{
             res.status(200).json({"message": "Successfully delete favorite animal"})
+        })
+        .catch(err=>{
+            res.status(400).json({err})
         })
     }
 }

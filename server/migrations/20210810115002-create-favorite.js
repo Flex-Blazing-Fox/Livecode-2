@@ -8,17 +8,19 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
-        type: Sequelize.STRING
-      },
-      imageUrl: {
-        type: Sequelize.STRING
-      },
-      description: {
-        type: Sequelize.STRING
+      animalId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Animals',
+          key: 'id'
+        }
       },
       userId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,

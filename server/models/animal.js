@@ -21,5 +21,8 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Animal',
   });
+  Animal.associate = function(models){
+    Animal.hasMany(models.Favorite, {foreignKey: 'animalId'})
+  }
   return Animal;
 };

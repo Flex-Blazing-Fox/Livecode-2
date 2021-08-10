@@ -14,6 +14,7 @@ class Authentication{
             .then(result=>{
                 if(result){
                     req.userId = result.id
+                    next()
                 }
                 else{
                     throw{err: 'ACCESS_DENIED'}
@@ -24,6 +25,7 @@ class Authentication{
             })
         }
         catch(err){
+            console.log(err);
             next({err: 'INVALID_TOKEN'})
         }
     }
