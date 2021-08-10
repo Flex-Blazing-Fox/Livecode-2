@@ -58,14 +58,14 @@ export default new Vuex.Store({
         }
       })
         .then(({ data }) => {
-          console.log(data.animals)
-          commit('SET_ANIMALS', data.animals)
+          console.log(data.favorites)
+          commit('SET_FAVOURTIES', data.favorites)
         })
         .catch(err => {
           console.log(err)
         })
     },
-    addToFavourite ({ dispatch }, payload) {
+    addToFavourite (context, payload) {
       axios({
         method: 'POST',
         url: `/favourites/${payload}`,
@@ -75,6 +75,22 @@ export default new Vuex.Store({
       })
         .then(() => {
           router.push('/favourites')
+        })
+        .catch(err => {
+          console.log(err.data[0].response.message)
+        })
+    },
+    deleteFavourite (context, payload) {
+      console.log(payload)
+      axios({
+        method: 'DELETE',
+        url: `/favourites/${payload}`,
+        headers: {
+          access_token: localStorage.access_token
+        }
+      })
+        .then(() => {
+          router.push('/')
         })
         .catch(err => {
           console.log(err.data[0].response.message)

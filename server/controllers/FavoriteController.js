@@ -1,10 +1,16 @@
-const { Favorite } = require('../models')
+const { Favorite, Animal } = require('../models')
 
 class FavoriteController {
     static getAllFavorites(req, res) {
-        Favorite.findAll()
+        Favorite.findAll({
+            attributes: ["id","userId","animalId"],
+            include: {
+                attributes: ["id","name","imageUrl","description"],
+                model:Animal
+            }
+        })
             .then(favorite => {
-                res.status(200).json(favorite)
+                res.status(200).json({"favorites": favorite})
             })
             .catch(err => {
                 res.status(500).json(err)
@@ -28,6 +34,7 @@ class FavoriteController {
     }
 
     static deleteFavorite(req,res) {
+        
         const { favorites } = req
 
         favorites
