@@ -1,5 +1,5 @@
 <template>
-  <div class="home-container">
+  <div class="home-container" v-if="isLogin">
     <div v-for="animal in animals" :key="animal.id">
       <Card :animal="animal"></Card>
     </div>
@@ -15,9 +15,14 @@ export default {
   components: { Card },
   computed: {
     animals() {
-      console.log("aaaa");
-      console.log(this.$store.state.animals);
       return this.$store.state.animals;
+    },
+    isLogin() {
+      if (this.$store.state.access_token) {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
   created() {

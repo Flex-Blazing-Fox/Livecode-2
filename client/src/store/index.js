@@ -72,15 +72,13 @@ export default createStore({
       });
     },
     deleteFavorite(context, payload) {
-      axios({
+      return axios({
         method: "DELETE",
         url: `/favorites/${payload}`,
         headers: {
           "Content-Type": "application/json",
           access_token: context.state.access_token,
         },
-      }).then(() => {
-        router.push({ path: "/favorites" });
       });
     },
   },

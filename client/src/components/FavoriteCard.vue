@@ -21,7 +21,10 @@ export default {
   props: ["favorite"],
   methods: {
     deleteFavorite(id) {
-      this.$store.dispatch("deleteFavorite", id);
+      this.$store.dispatch("deleteFavorite", id).then(() => {
+        this.$store.dispatch("getFavorites");
+        this.$router.push({ path: "/favorites" });
+      });
     },
   },
 };
