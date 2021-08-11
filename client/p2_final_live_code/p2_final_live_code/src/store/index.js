@@ -5,20 +5,20 @@ import router from '../router'
 
 Vue.use(Vuex)
 
-const baseURL = "http://localhost:3000"
+Axios.defaults.baseURL = 'http://localhost:3000'
 
 export default new Vuex.Store({
   state: {
     animals: []
   },
   mutations: {
-    SET_ANIMALS(state, payload) {
+    SET_ANIMALS (state, payload) {
       state.animals = payload
     }
   },
   actions: {
-    login(context,payload){
-      const {email,password} = payload
+    login (context, payload) {
+      const { email, password } = payload
       Axios({
         method: 'POST',
         url: '/login',
@@ -26,20 +26,18 @@ export default new Vuex.Store({
           email,
           password
         }
-      })
-      .then(({data})=>{
+      }).then(({ data }) => {
         localStorage.setItem('access_token', data.token)
         localStorage.setItem('userId', data.id)
-        router.push({path:'/'})
-      })
-      .catch((err)=>{
-        next(err)
+        router.push({ path: '/' })
+      }).catch((err) => {
+        console.log(err)
       })
     },
 
-    logout(){
+    logout () {
       localStorage.removeItem('access_token')
-      router.push({path:'/login'})
+      router.push({ path: '/login' })
     }
   },
   modules: {
