@@ -1,0 +1,24 @@
+<template>
+  <div class="card">
+    <div class="card-image">
+      <img :src="animal.imageUrl" alt="card image" />
+    </div>
+    <div class="card-body">
+      <h3>{{ animal.name }}</h3>
+      <p>{{ animal.description }}</p>
+    </div>
+    <button @click.prevent="addToFavorite(animal.id)">Add To Favorites</button>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Card",
+  props: ["animal"],
+  methods: {
+    addToFavorite(id) {
+      this.$store.dispatch("addToFavorite", id);
+    },
+  },
+};
+</script>

@@ -1,0 +1,39 @@
+@host=http://localhost:3000 
+
+### Register
+POST {{host}}/register 
+Content-Type: application/json
+
+{
+    "email": "user1@gmail.com",
+    "password": "user1"
+}
+
+### Login
+POST {{host}}/login 
+Content-Type: application/json
+
+{
+    "email": "user1@gmail.com",
+    "password": "user1"
+}
+
+### Get Animals
+GET {{host}}/animals 
+Content-Type: application/json
+access_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjI4NTk3ODg3fQ.UendZsIx5RzE1Ylitig-VqCjhbZ9gLyzWAPboOcttNg
+
+### Create Favorites
+POST {{host}}/favorites/2
+Content-Type: application/json
+access_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjI4NTk3ODg3fQ.UendZsIx5RzE1Ylitig-VqCjhbZ9gLyzWAPboOcttNg
+
+### Get Favorites
+GET {{host}}/favorites
+Content-Type: application/json
+access_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjI4NTk3ODg3fQ.UendZsIx5RzE1Ylitig-VqCjhbZ9gLyzWAPboOcttNg
+
+### Delete Favorites
+DELETE {{host}}/favorites/1
+Content-Type: application/json
+access_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjI4NTk3ODg3fQ.UendZsIx5RzE1Ylitig-VqCjhbZ9gLyzWAPboOcttNg
